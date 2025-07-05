@@ -320,7 +320,7 @@ Public Class MainMenu
                                 With (p.StartInfo)
                                     .FileName = SteamCMDExePath & "\steamcmd.exe"
                                     .UseShellExecute = False
-                                    .Arguments = "SteamCmd +login " & Login & " +force_install_dir " & ServerPathInstallation & GoldSrcMod & " +app_update " & SteamAppID & ValidateApp
+                                    .Arguments = "steamcmd +force_install_dir " & ServerPathInstallation & " +login " & Login & GoldSrcMod & " +app_update " & SteamAppID & ValidateApp
                                 End With
                                 p.Start()
                             Else
@@ -356,7 +356,7 @@ Public Class MainMenu
             .RedirectStandardOutput = True
             .RedirectStandardInput = True
             .RedirectStandardError = True
-            .Arguments = "SteamCmd +login " & Login & " +force_install_dir " & ServerPathInstallation & GoldSrcMod & " +app_update " & SteamAppID & ValidateApp
+            .Arguments = "steamcmd +force_install_dir " & ServerPathInstallation & " +login " & Login & GoldSrcMod & " +app_update " & SteamAppID & ValidateApp
         End With
 
         p.Start()
@@ -414,7 +414,7 @@ Public Class MainMenu
                 RunServerButton.Enabled = False
                 Status.Text = "Can't find the file 'srcds.exe'!"
                 Status.BackColor = Color.FromArgb(240, 200, 200)
-                My.Computer.Audio.PlaySystemSound( _
+                My.Computer.Audio.PlaySystemSound(
                     Media.SystemSounds.Hand)
             End If
         End If
@@ -507,7 +507,7 @@ Public Class MainMenu
         Else
             Status.Text = "The 'map' folder is empty or doesn't exist!"
             Status.BackColor = Color.FromArgb(240, 200, 200)
-            My.Computer.Audio.PlaySystemSound( _
+            My.Computer.Audio.PlaySystemSound(
                 Media.SystemSounds.Hand)
         End If
     End Sub
@@ -604,19 +604,19 @@ Public Class MainMenu
             If GameMod = Nothing Then
                 Status.Text = "Please, select a game."
                 Status.BackColor = Color.FromArgb(240, 200, 200)
-                My.Computer.Audio.PlaySystemSound( _
+                My.Computer.Audio.PlaySystemSound(
                     Media.SystemSounds.Hand)
             Else
                 If ServerName = Nothing Then
                     Status.Text = "Please, type a name for the server."
                     Status.BackColor = Color.FromArgb(240, 200, 200)
-                    My.Computer.Audio.PlaySystemSound( _
+                    My.Computer.Audio.PlaySystemSound(
                         Media.SystemSounds.Hand)
                 Else
                     If ServerMap = Nothing Then
                         Status.Text = "Select the default map."
                         Status.BackColor = Color.FromArgb(240, 200, 200)
-                        My.Computer.Audio.PlaySystemSound( _
+                        My.Computer.Audio.PlaySystemSound(
                             Media.SystemSounds.Hand)
                     Else
                         Parameters = DebugMode & SourceTV & ConsoleMode & InsecureMode & NoBots & DevMode
@@ -638,7 +638,7 @@ Public Class MainMenu
         Else
             Status.Text = "Can't find the file 'srcds.exe'!"
             Status.BackColor = Color.FromArgb(240, 200, 200)
-            My.Computer.Audio.PlaySystemSound( _
+            My.Computer.Audio.PlaySystemSound(
                 Media.SystemSounds.Hand)
         End If
     End Sub
@@ -756,7 +756,7 @@ Public Class MainMenu
                 XmlWrt.Close()
                 Status.Text = Path.GetFileName(ConfigFile) & " file saved."
                 Status.BackColor = Color.FromArgb(240, 240, 240)
-                My.Computer.Audio.PlaySystemSound( _
+                My.Computer.Audio.PlaySystemSound(
                   Media.SystemSounds.Exclamation)
             End If
         End If
@@ -856,7 +856,7 @@ Public Class MainMenu
         Else
             Status.Text = "Can't find the server files!"
             Status.BackColor = Color.FromArgb(240, 200, 200)
-            My.Computer.Audio.PlaySystemSound( _
+            My.Computer.Audio.PlaySystemSound(
                 Media.SystemSounds.Hand)
         End If
     End Sub
@@ -907,7 +907,7 @@ Public Class MainMenu
             Else
                 Status.Text = "Seems that SourceMod isn't installed."
                 Status.BackColor = Color.FromArgb(240, 200, 200)
-                My.Computer.Audio.PlaySystemSound( _
+                My.Computer.Audio.PlaySystemSound(
                     Media.SystemSounds.Hand)
             End If
         End If
@@ -960,7 +960,7 @@ Public Class MainMenu
                 End If
                 Status.Text = "SteamCMD closed."
                 Status.BackColor = Color.FromArgb(240, 200, 200)
-                My.Computer.Audio.PlaySystemSound( _
+                My.Computer.Audio.PlaySystemSound(
                     Media.SystemSounds.Hand)
             End If
         Next proc
@@ -1000,14 +1000,14 @@ Public Class MainMenu
         ID = InputBox("Custom Game App ID")
 
         If ("" = Name) Then
-            My.Computer.Audio.PlaySystemSound( _
+            My.Computer.Audio.PlaySystemSound(
             Media.SystemSounds.Hand)
             MessageBox.Show("Custom Game Name was not entered.", "Add Custom Game Error")
             Return
         End If
 
         If ("" = ID) Then
-            My.Computer.Audio.PlaySystemSound( _
+            My.Computer.Audio.PlaySystemSound(
             Media.SystemSounds.Hand)
             MessageBox.Show("Custom Game ID was not entered.", "Add Custom Game Error")
             Return
@@ -1016,7 +1016,7 @@ Public Class MainMenu
         Dim TestInt As Integer = 0
         Integer.TryParse(ID, TestInt)
         If (TestInt = 0) Then
-            My.Computer.Audio.PlaySystemSound( _
+            My.Computer.Audio.PlaySystemSound(
             Media.SystemSounds.Hand)
             MessageBox.Show("Custom Game ID was not a number (e.x 444880).", "Add Custom Game Error")
             Return
